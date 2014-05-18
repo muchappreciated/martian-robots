@@ -1,0 +1,13 @@
+{
+  "name": "martian-robots",
+  "version": "0.0.1",
+  "description": "Martian Robots",
+  "main": "./lib/Main.js",
+  "author": "Stephen Ireland",
+  "dependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-mocha-test": "*"
+  }
+}
