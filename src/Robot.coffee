@@ -45,7 +45,7 @@ module.exports =
 			# Ignore command if scent on position
 			hasScent = false
 			for scent in map.Scents
-				if position.Y is scent.Y and position.X is scent.X
+				if position.Y.toString() is scent.Y.toString() and position.X.toString() is scent.X.toString()
 					hasScent = true
 					break
 			if !hasScent

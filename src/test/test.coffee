@@ -114,3 +114,58 @@ describe 'Robot', ->
 		assert.equal 10, robotTwo.Position.Y
 		assert.equal 'N', robotTwo.Position.Direction
 
+describe 'Sample input', ->
+	map = new Map 5, 3
+
+	it 'has correct output', ->
+		robotOne = new Robot map, new Position 1, 1, 'E'
+		robotTwo = new Robot map, new Position 3, 2, 'N'
+		robotThree = new Robot map, new Position 0, 3, 'W'
+
+		#robotOne Moves
+		robotOne.TurnRight()
+		robotOne.MoveForwards()
+		robotOne.TurnRight()
+		robotOne.MoveForwards()
+		robotOne.TurnRight()
+		robotOne.MoveForwards()
+		robotOne.TurnRight()
+		robotOne.MoveForwards()
+
+		assert.equal 1, robotOne.Position.X
+		assert.equal 1, robotOne.Position.Y
+		assert.equal 'E', robotOne.Position.Direction
+
+		#robotTwo Moves
+		try
+			robotTwo.MoveForwards()
+			robotTwo.TurnRight()
+			robotTwo.TurnRight()
+			robotTwo.MoveForwards()
+			robotTwo.TurnLeft()
+			robotTwo.TurnLeft()
+			robotTwo.MoveForwards()
+			robotTwo.MoveForwards()
+			robotTwo.TurnRight()
+			robotTwo.TurnRight()
+			robotTwo.MoveForwards()
+			robotTwo.TurnLeft()
+			robotTwo.TurnLeft()
+		catch e
+			# expecting error, digest and continue
+
+		#robotThree Moves
+		robotThree.TurnLeft()
+		robotThree.TurnLeft()
+		robotThree.MoveForwards()
+		robotThree.MoveForwards()
+		robotThree.MoveForwards()
+		robotThree.TurnLeft()
+		robotThree.MoveForwards()
+		robotThree.TurnLeft()
+		robotThree.MoveForwards()
+		robotThree.TurnLeft()
+
+		assert.equal 2, robotThree.Position.X
+		assert.equal 3, robotThree.Position.Y
+		assert.equal 'S', robotThree.Position.Direction
